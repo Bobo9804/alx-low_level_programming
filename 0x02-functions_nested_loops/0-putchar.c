@@ -7,14 +7,11 @@
  */
 int main(void)
 {
+    char str[] = "_putchar\n";
     int i;
 
-    for (i = 0; i < 10; i++)
-    {
-        _putchar(i + '0'); // use _putchar function to print the digits 0-9
-    }
-
-    _putchar('\n'); // add a newline character at the end of the output
+    for (i = 0; str[i] != '\0'; i++)
+        _putchar(str[i]);
 
     return (0);
 }
