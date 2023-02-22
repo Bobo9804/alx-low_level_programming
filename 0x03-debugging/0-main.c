@@ -1,13 +1,10 @@
 #include "main.h"
 
 /**
- * main - Entry point
- *
- * This function tests the positive_or_negative function
- * by passing it an integer value of 0.
- *
- * Return: Always 0 (Success)
+ * main - tests function that prints if integer is positive or negative
+ * Return: 0
  */
+
 int main(void)
 {
     int i;
