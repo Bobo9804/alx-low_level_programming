@@ -2,37 +2,34 @@
 #include <stdlib.h>
 
 /**
- * main - prints opcodes of its own main function
- * @argc: number of arguments passed to the function
- * @argv: pointer to an array of pointers containing arguments passed
- * Return: 0 on success, 1 on failure
+ * main - print opcodes of main
+ * @argc: number of args in argv, should be 2
+ * @argv: args containing number of bytes to print
+ * Return: Success (0), Error (1)
  */
 int main(int argc, char *argv[])
 {
-  int i, bytes;
-  unsigned char *ptr;
+	int n;
+	char *fn;
 
-  if (argc != 2)
-  {
-    printf("Error\n");
-    return 1;
-  }
-
-  bytes = atoi(argv[1]);
-  if (bytes < 0)
-  {
-    printf("Error\n");
-    return 1;
-  }
-
-  ptr = (unsigned char *)main;
-  for (i = 0; i < bytes; i++)
-  {
-    printf("%02x", *(ptr + i));
-    if (i == bytes - 1)
-      printf("\n");
-    else
-      printf(" ");
-  }
-  return 0;
+	if (argc != 2)
+	{
+		puts("Error");
+		return (1);
+	}
+	n = atoi(argv[1]);
+	if (n < 0)
+	{
+		puts("Error");
+		return (2);
+	}
+	fn = (char *)main;
+	for (; n > 0; n--, fn++)
+	{
+		printf("%02x", *fn & 0xff);
+		if (n != 1)
+			putchar(' ');
+	}
+	putchar('\n');
+	return (0);
 }
